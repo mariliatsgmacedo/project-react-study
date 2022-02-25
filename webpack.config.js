@@ -13,14 +13,14 @@ module.exports ={
 
     //entry: qual o arquivo principal da nossa aplicação. o __dirname vai pegar o diretorio de onde ta o nosso arquivo webpack. 
     //Dessa forma ele vai colocar a barra correta de acordo com o sistema operacional.
-    entry: path.resolve(__dirname, 'src', 'index.jsx'), 
+    entry: path.resolve(__dirname, 'src', 'index.tsx'), 
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     resolve: {
         //Informar que vai aceitar ambas as extensões
-        extensions: ['.js', '.jsx'] 
+        extensions: ['.js', '.jsx', '.ts', '.tsx'] 
     },
     devServer: {
         //Informar onde está o conteudo estatico da aplicação
@@ -42,7 +42,7 @@ module.exports ={
                 //recebe uma expressão regular
                 //primeiro pegar como o arquivo termina utilizando o $. Colocar uma barra na frente para identificar 
                 //o . da extensão
-                test:/\.jsx$/,
+                test:/\.(j|t)sx$/,
                 exclude: /node_modules/,
                 //integração entre webpack e babel
                 use: {
